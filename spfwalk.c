@@ -129,7 +129,7 @@ dispatch_record(struct asr_result *ar, void *arg)
 	struct dns_rr rr;
 
 	/* best effort */
-	if (ar->ar_h_errno && ar->ar_h_errno != NO_DATA)
+	if (ar->ar_h_errno != -1 && ar->ar_h_errno != NO_DATA)
 		return;
 
 	unpack_init(&pack, ar->ar_data, ar->ar_datalen);
